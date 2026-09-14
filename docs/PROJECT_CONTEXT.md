@@ -8,7 +8,7 @@ Source support includes Astra; this snapshot does not establish publication.
 ## Repository
 
 Checkout: C:\Users\user\Documents\Codex\codexmodelhotkeys.
-Public product: ReasonKey; repository: nauroman/codex-model-hotkeys.
+Public product: ReasonKey; repository: nauroman/ReasonKey.
 Historical product names are migration inputs, not current branding.
 
 | Responsibility | Source / entry points | Contract |

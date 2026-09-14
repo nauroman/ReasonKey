@@ -64,7 +64,7 @@ for Ctrl+Alt+1 through Ctrl+Alt+4.
 ## The installer shows a SmartScreen warning
 
 The release executable is not code-signed. Verify that it came from the
-`nauroman/codex-model-hotkeys` GitHub Releases page and compare its SHA-256 hash
+`nauroman/ReasonKey` GitHub Releases page and compare its SHA-256 hash
 with `ReasonKey-Setup.exe.sha256` before choosing **Run anyway**.
 
 ## Where is the log?

@@ -100,4 +100,4 @@ package-owned data.
 Source code, build instructions, privacy policy, security policy, and
 third-party notices are public at:
 
-https://github.com/nauroman/codex-model-hotkeys
+https://github.com/nauroman/ReasonKey

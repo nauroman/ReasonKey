@@ -87,11 +87,11 @@ AI model hotkeys, model presets, reasoning effort, keyboard shortcuts, model swi
 
 ## Privacy policy URL
 
-https://github.com/nauroman/codex-model-hotkeys/blob/main/PRIVACY.md
+https://github.com/nauroman/ReasonKey/blob/main/PRIVACY.md
 
 ## Website and support URL
 
-https://github.com/nauroman/codex-model-hotkeys
+https://github.com/nauroman/ReasonKey
 
 ## Copyright and trademark note
 

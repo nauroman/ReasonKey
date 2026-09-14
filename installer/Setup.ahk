@@ -12,7 +12,7 @@ global StartupShortcut := A_Startup "\ReasonKey.lnk"
 global LegacyInstallDirectory := EnvGet("LOCALAPPDATA") "\CodexModelHotkeys"
 global LegacyRuntimePath := LegacyInstallDirectory "\CodexModelHotkeys.exe"
 global LegacyStartupShortcut := A_Startup "\CodexModelHotkeys.lnk"
-global RepositoryUrl := "https://github.com/nauroman/codex-model-hotkeys"
+global RepositoryUrl := "https://github.com/nauroman/ReasonKey"
 global SilentInstall := HasArgument("--silent")
 global SetupLogPath := A_Temp "\ReasonKey-Setup.log"
 

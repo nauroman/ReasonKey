@@ -10,7 +10,7 @@ app.
 
 ## Install in one click
 
-[**Download ReasonKey-Setup.exe**](https://github.com/nauroman/codex-model-hotkeys/releases/latest/download/ReasonKey-Setup.exe)
+[**Download ReasonKey-Setup.exe**](https://github.com/nauroman/ReasonKey/releases/latest/download/ReasonKey-Setup.exe)
 
 Run the downloaded installer. It installs for the current Windows user, starts
 immediately, and starts automatically when you sign in. AutoHotkey is bundled
@@ -41,8 +41,8 @@ build nor the per-user installer requires administrator rights.
 1. Download the source with **Code → Download ZIP**, or clone it:
 
    ```powershell
-   git clone https://github.com/nauroman/codex-model-hotkeys.git
-   Set-Location .\codex-model-hotkeys
+   git clone https://github.com/nauroman/ReasonKey.git
+   Set-Location .\ReasonKey
    ```
 
    To build a particular release instead of the current `main` branch, select

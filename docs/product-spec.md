@@ -11,7 +11,7 @@ a complete model/reasoning preset in the Codex or ChatGPT Chat composer.
 Priorities: verified selection, preservation of user configuration, keyboard
 accessibility, compatibility across supported picker layouts, and simple per-user
 installation. Current product/artifact names use ReasonKey; CodexModelHotkeys
-names are retained only where migration or repository identity requires them.
+names are retained only where migration or compatibility requires them.
 
 ## Authority and status
 

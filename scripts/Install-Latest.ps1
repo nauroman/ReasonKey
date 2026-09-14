@@ -16,7 +16,7 @@ else {
     New-Item -ItemType Directory -Path $temporaryDirectory | Out-Null
     $setupPath = Join-Path $temporaryDirectory 'ReasonKey-Setup.exe'
     $checksumPath = Join-Path $temporaryDirectory 'ReasonKey-Setup.exe.sha256'
-    $releaseBase = 'https://github.com/nauroman/codex-model-hotkeys/releases/latest/download'
+    $releaseBase = 'https://github.com/nauroman/ReasonKey/releases/latest/download'
 
     Write-Host 'Downloading the latest ReasonKey installer...'
     Invoke-WebRequest -UseBasicParsing -Uri "$releaseBase/ReasonKey-Setup.exe" -OutFile $setupPath

@@ -59,7 +59,7 @@ The direct installer provides an uninstaller in Windows Installed Apps.
 Questions or privacy concerns can be reported through the repository's
 [security policy](SECURITY.md) or issue tracker:
 
-https://github.com/nauroman/codex-model-hotkeys
+https://github.com/nauroman/ReasonKey
 
 ReasonKey is an unofficial community utility. It is not made,
 endorsed, or supported by OpenAI.
