@@ -36,7 +36,7 @@ behavior belongs to [Store updates](store-updates.md).
 
 ## Current implementation
 
-Source inspection: 2026-09-08, working-tree runtime and installer AppVersion 1.0.10.
+Source inspection: 2026-09-13, working-tree runtime and installer AppVersion 1.0.11.
 
 | Surface | Current location / implementation |
 |---|---|

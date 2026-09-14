@@ -129,9 +129,13 @@ In **Codex** and **ChatGPT Work**, new installations use:
 | `F17` | GPT-6 Astra | Medium |
 | `F18` | GPT-6 Astra | High |
 | `F19` | GPT-6 Astra | Extra High |
+| `Ctrl+F16` | GPT-5.6 Sol | Light |
+| `Ctrl+F17` | GPT-5.6 Sol | Medium |
+| `Ctrl+F18` | GPT-5.6 Sol | High |
+| `Ctrl+F19` | GPT-5.6 Sol | Extra High |
 
-When the composer is in **ChatGPT Chat** instead of **Codex**, the same hotkeys
-select 5.6 Sol on Chat's independent Power scale:
+When the composer is in **ChatGPT Chat** instead of **Codex**, both shortcut
+groups select 5.6 Sol on Chat's independent Power scale:
 
 | Shortcut | Chat model | Power |
 |---|---|---|
@@ -139,6 +143,10 @@ select 5.6 Sol on Chat's independent Power scale:
 | `F17` | 5.6 Sol | Medium |
 | `F18` | 5.6 Sol | High |
 | `F19` | 5.6 Sol | Pro |
+| `Ctrl+F16` | 5.6 Sol | Instant |
+| `Ctrl+F17` | 5.6 Sol | Medium |
+| `Ctrl+F18` | 5.6 Sol | High |
+| `Ctrl+F19` | 5.6 Sol | Pro |
 
 Chat uses its independent `ChatEffort` values. Some unified-picker versions
 display the `Instant` and `Pro` endpoints as `Light` and `Max`; ReasonKey
@@ -171,7 +179,9 @@ always-current commented example. Upgrades preserve the active `presets.ini`.
 running ReasonKey tray icon. Store and direct EXE installations have separate
 configuration files, and upgrading deliberately keeps existing presets. Set
 `Model=Astra` in Preset1–Preset4 and their `Effort` values to `Light`, `Medium`,
-`High`, `Extra High`, respectively, then save and choose **Reload**. The tray
+`High`, `Extra High`, respectively, then save and choose **Reload**. To add the
+Sol shortcuts to an existing installation, copy Preset5–Preset8 from **Open
+configuration guide**, set `PresetCount=8`, then reload. The tray
 command opens the file used by the active runtime.
 
 Supported model names are `Luna`, `Terra`, `Sol`, and `Astra` (GPT-6).

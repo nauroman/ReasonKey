@@ -131,6 +131,10 @@ user INI and restore any deliberately changed composer mode/preset afterward.
    - F17 → `GPT-6 Astra Medium`
    - F18 → `GPT-6 Astra High`
    - F19 → `GPT-6 Astra Extra High`
+   - Ctrl+F16 → `GPT-5.6 Sol Light`
+   - Ctrl+F17 → `GPT-5.6 Sol Medium`
+   - Ctrl+F18 → `GPT-5.6 Sol High`
+   - Ctrl+F19 → `GPT-5.6 Sol Extra High`
 2. Current unified picker in Codex, starting already open:
    - from compact `Select model` / `Power`, trigger a different preset;
    - from the model radio view, trigger a different preset;
@@ -146,6 +150,7 @@ user INI and restore any deliberately changed composer mode/preset afterward.
    - F17 → `5.6 Sol Medium`;
    - F18 → `5.6 Sol High`;
    - F19 → `5.6 Sol Pro` (or Max on older combined-label pickers);
+   - Ctrl+F16–Ctrl+F19 → the same independent Chat Power levels as F16–F19;
    - confirm the ordinary Chat composer is detected independently from Work and is
      restored to Codex after any diagnostic test.
 4. Legacy picker compatibility (when an older supported app build is
@@ -185,7 +190,8 @@ throw. Verify the corresponding accessible state change.
 
 ## Release
 
-Recorded [1.0.10 release evidence](diagnostics/release-1.0.10.md) and earlier
+Recorded [1.0.11 release evidence](diagnostics/release-1.0.11.md),
+[1.0.10 release evidence](diagnostics/release-1.0.10.md), and earlier
 [Astra development evidence](diagnostics/astra-validation-20260905.md) are
 separate from these reusable release gates.
 

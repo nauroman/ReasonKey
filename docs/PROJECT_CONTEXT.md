@@ -2,7 +2,7 @@
 
 Source/navigation context, not a second product specification or a release log.
 Read the [product core](product-spec.md) and affected owners first.
-Snapshot: 2026-09-08; working-tree runtime and installer declare AppVersion 1.0.10.
+Snapshot: 2026-09-13; working-tree runtime and installer declare AppVersion 1.0.11.
 Source support includes Astra; this snapshot does not establish publication.
 
 ## Repository
@@ -42,8 +42,9 @@ public Store delivery.
 ## Evidence boundaries
 
 The source map above comes from source inspection. Current release evidence is
-in [1.0.10 validation](diagnostics/release-1.0.10.md), including actual Codex,
-ChatGPT Work and ordinary Chat results and the remaining external gates.
+in [1.0.11 validation](diagnostics/release-1.0.11.md). Previous
+[1.0.10 validation](diagnostics/release-1.0.10.md) includes actual Codex,
+ChatGPT Work and ordinary Chat results and its remaining external gates.
 [Picker history](diagnostics/picker-validation-history.md) records earlier app
 versions and transitions. [Store history](diagnostics/store-release-history.md)
 records builds, hashes, confirmations and submission states through 1.0.6.

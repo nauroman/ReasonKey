@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.11 - 2026-09-13
+
+- Keep F16–F19 on GPT-6 Astra Light, Medium, High, and Extra High.
+- Add Ctrl+F16–Ctrl+F19 for GPT-5.6 Sol at the same four effort levels in Codex
+  and ChatGPT Work; keep ordinary Chat's independent Sol Power mapping.
+- Show all eight shortcuts in the default configuration and Quick Start.
+
 ## 1.0.10 - 2026-09-09
 
 - Recognize the 26.903 open-picker Select effort / Select model Button beside

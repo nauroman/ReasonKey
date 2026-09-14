@@ -37,14 +37,15 @@ desktop app is absent. For a complete functional test:
 1. Install and open the official Codex/ChatGPT Windows desktop app.
 2. Sign in with a tester-owned OpenAI account.
 3. Keep a Codex composer active.
-4. Press F16, F17, F18, or F19.
+4. Press F16, F17, F18, F19, or their Ctrl-modified variants.
 5. Confirm the combined model/effort label changes to the corresponding value.
 
 The same shortcuts must also be tested in a ChatGPT Chat composer. They select
 5.6 Sol with Instant, Medium, High, and Pro in ordinary Chat. Older combined-label
 pickers use Light and Max endpoints as documented in the public README.
 Codex and ChatGPT Work defaults select GPT-6 Astra Light, Medium, High, and
-Extra High. Ordinary Chat's separate catalog does not expose Astra on the
+Extra High on F16–F19, and GPT-5.6 Sol at the same effort levels on
+Ctrl+F16–Ctrl+F19. Ordinary Chat's separate catalog does not expose Astra on the
 tested 26.903.8094.0 app. Upgrades preserve the active configuration, so an
 existing install may still show customized or older presets in Quick Start.
 

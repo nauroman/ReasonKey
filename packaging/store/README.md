@@ -13,9 +13,11 @@ by the [product core](../../docs/product-spec.md); release history is kept in
   `runFullTrust` justification, and data/network behavior;
 - `SubmissionChecklist.md` - identity, build, validation, submission, and
   post-certification gates;
-- `assets/StoreScreenshot-ReasonKey-QuickStart.png` - the actual compact
-  application window, framed on a neutral 1600x900 canvas above the Store
-  minimum. The canvas does not change or enlarge the application UI.
+- `assets/ReasonKey-QuickStart-window.png` - the user-supplied Quick Start
+  screenshot with all eight shortcuts, preserved unchanged at 1041x993 pixels.
+  Its window title shows the installed 1.0.10 runtime used for the capture.
+- `assets/StoreScreenshot-ReasonKey-QuickStart.png` - that screenshot framed
+  without cropping on a 1600x1200 neutral canvas for the Store listing.
 
 The 300x300 Store logo and manifest image variants are generated from
 `assets/ReasonKey.png` by `scripts/Build-Msix.ps1`. They appear under
@@ -38,7 +40,9 @@ Capture the window and then build the Store-sized neutral canvas:
 
 ```powershell
 .\scripts\Capture-StoreWindow.ps1 -ProcessId <preview-process-id>
-.\scripts\Build-StoreScreenshot.ps1
+.\scripts\Build-StoreScreenshot.ps1 `
+  -WindowScreenshot packaging\store\assets\ReasonKey-QuickStart-window.png `
+  -CanvasWidth 1600 -CanvasHeight 1200
 ```
 
 Close the preview after the capture.

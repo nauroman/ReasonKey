@@ -32,6 +32,10 @@ Default presets in Codex and ChatGPT Work:
 - F17: GPT-6 Astra, Medium
 - F18: GPT-6 Astra, High
 - F19: GPT-6 Astra, Extra High
+- Ctrl+F16: GPT-5.6 Sol, Light
+- Ctrl+F17: GPT-5.6 Sol, Medium
+- Ctrl+F18: GPT-5.6 Sol, High
+- Ctrl+F19: GPT-5.6 Sol, Extra High
 
 Ordinary Chat has a separate model catalog. The tested 26.903 app offers
 Latest, GPT-5.6 Sol and GPT-5.5 there, without Astra. Use Codex or ChatGPT Work
@@ -40,6 +44,8 @@ for Astra; ReasonKey cannot unlock an unavailable model.
 Upgrades preserve existing presets. To adopt Astra after upgrading, open
 presets.ini from the running ReasonKey tray icon, set the first four Model
 values to Astra and Effort to Light, Medium, High, Extra High, then reload.
+To add Ctrl+F16 through Ctrl+F19 to an existing installation, copy Preset5–8
+from the configuration guide, set PresetCount to 8, and reload.
 Store and direct EXE installations keep separate configuration files.
 
 Shortcuts and presets can be edited in a documented `presets.ini` file from the
@@ -93,10 +99,9 @@ Copyright 2026 ReasonKey contributors. Codex, ChatGPT, and OpenAI are the
 property of their respective owners. This product is not affiliated with or
 endorsed by OpenAI.
 
-## What's new in 1.0.10
+## What's new in 1.0.11
 
-- Recognize the updated 26.903 picker, including its open Select effort Button.
-- Astra Light, Medium, High, and Extra High on F16-F19 in Codex and ChatGPT Work.
-- Keep ordinary Chat's separate Sol Instant, Medium, High, and Pro presets.
-- Keep picker discovery inside the focused popup and active app window.
-- Clarify how to update preserved presets in the active Store or EXE installation.
+- Add Ctrl+F16–Ctrl+F19 for GPT-5.6 Sol Light, Medium, High, and Extra High in
+  Codex and ChatGPT Work.
+- Keep F16–F19 on GPT-6 Astra at the same four effort levels.
+- Keep ordinary Chat's separate Sol Instant, Medium, High, and Pro mapping.

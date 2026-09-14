@@ -33,7 +33,7 @@ Read through the [product core](../product-spec.md).
 
 ## Current implementation
 
-Source inspection: 2026-09-08, working-tree [ReasonKey.ahk](../../src/ReasonKey.ahk) 1.0.10.
+Source inspection: 2026-09-13, working-tree [ReasonKey.ahk](../../src/ReasonKey.ahk) 1.0.11.
 
 | Area | Source entry points / current accessible surface |
 |---|---|

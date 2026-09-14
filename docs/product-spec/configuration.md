@@ -21,6 +21,10 @@ does not expose Astra.
 | F17 | Astra | Medium | Medium | Medium |
 | F18 | Astra | High | High | High |
 | F19 | Astra | Extra High | Pro | Max |
+| Ctrl+F16 | Sol | Light | Instant | Light |
+| Ctrl+F17 | Sol | Medium | Medium | Medium |
+| Ctrl+F18 | Sol | High | High | High |
+| Ctrl+F19 | Sol | Extra High | Pro | Max |
 
 - Model names: Luna, Terra, Sol (5.6) and Astra (6). Efforts: Light, Medium, High, Extra High, Max,
   Ultra; actual availability must be exposed by the target picker.
@@ -31,8 +35,9 @@ does not expose Astra.
   remain as shown above.
 - ChatEffort accepts Instant, Medium, High, Pro. Extra High is not a supported
   ChatEffort configuration value even though a legacy UI exposed that option.
-- Missing ChatEffort uses the defaults above for sections 1–4. Further sections
-  must specify ChatEffort to work in Chat.
+- Missing ChatEffort uses the legacy defaults above for sections 1–4. Sections
+  5–8 in the shipped configuration specify ChatEffort explicitly; further
+  sections must also specify it to work in Chat.
 - Use AutoHotkey keyboard syntax, unique hotkeys and consecutive Preset sections.
   Reload after editing. No wheel-cycle feature; legacy CycleUp/CycleDown keys
   are ignored.
@@ -48,15 +53,17 @@ its independent scale. Its stable `Select ChatGPT model` Button is verified
 through descendants or persisted Power status; the selected model radio is
 also verified. Older combined-label Chat pickers retain the Light/Max mapping.
 
-Source inspection: 2026-09-08, working-tree runtime AppVersion 1.0.10; see the Astra diagnostic report for earlier live
+Source inspection: 2026-09-13, working-tree runtime AppVersion 1.0.11; see the Astra diagnostic report for earlier live
 UI and upgrade proof.
 
 In [ReasonKey.ahk](../../src/ReasonKey.ahk), LoadPresets reads General/PresetCount
-(default 4, integer conversion failure → 4, clamped to 1–20), then Preset1 through
+(legacy missing/invalid value → 4, clamped to 1–20; shipped INI specifies 8),
+then Preset1 through
 PresetN. Hotkey, normalized Model and normalized Effort must be nonempty or that
 section is skipped. Missing Name defaults to the normalized model/effort label.
 
-A missing configuration file or zero accepted sections loads DefaultPresets.
+A missing configuration file or zero accepted sections loads the eight
+DefaultPresets.
 An invalid ChatEffort normalizes to empty without discarding an otherwise valid
 Codex preset; applying it in Chat fails. RegisterConfiguredHotkeys separately
 logs invalid AutoHotkey expressions as invalid-hotkey; that registration failure

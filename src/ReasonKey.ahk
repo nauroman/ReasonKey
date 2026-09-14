@@ -58,6 +58,22 @@ if HasCommandLineArgument("--validate")
     if NormalizeChatEffortName("Extra High") != ""
         ExitApp(1)
 
+    expectedDefaultHotkeys := ["F16", "F17", "F18", "F19", "^F16", "^F17", "^F18", "^F19"]
+    expectedDefaultLabels := [
+        "6 Astra Light", "6 Astra Medium", "6 Astra High", "6 Astra Extra High",
+        "5.6 Sol Light", "5.6 Sol Medium", "5.6 Sol High", "5.6 Sol Extra High"
+    ]
+    defaults := DefaultPresets()
+    if defaults.Length != expectedDefaultHotkeys.Length
+        ExitApp(67)
+    for index, preset in defaults
+    {
+        if preset.Hotkey != expectedDefaultHotkeys[index]
+            || preset.TriggerLabel != expectedDefaultLabels[index]
+            || preset.ChatEffort != expectedChatEfforts[Mod(index - 1, 4) + 1]
+            ExitApp(68)
+    }
+
     for chatEffort in expectedChatEfforts
     {
         if !MatchesAnyPattern(
@@ -156,7 +172,7 @@ UIA.SetMaximumDPIAwareness()
 Persistent true
 
 global AppName := "ReasonKey"
-global AppVersion := "1.0.10"
+global AppVersion := "1.0.11"
 global PackageFamilyName := GetPackageFamilyName()
 global DataDirectory := GetApplicationDataDirectory(PackageFamilyName)
 global ConfigPath := A_IsCompiled
@@ -590,7 +606,11 @@ DefaultPresets()
         CreatePreset("F16", "Astra Light", "Astra", "Light", "Instant"),
         CreatePreset("F17", "Astra Medium", "Astra", "Medium", "Medium"),
         CreatePreset("F18", "Astra High", "Astra", "High", "High"),
-        CreatePreset("F19", "Astra Extra High", "Astra", "Extra High", "Pro")
+        CreatePreset("F19", "Astra Extra High", "Astra", "Extra High", "Pro"),
+        CreatePreset("^F16", "Sol Light", "Sol", "Light", "Instant"),
+        CreatePreset("^F17", "Sol Medium", "Sol", "Medium", "Medium"),
+        CreatePreset("^F18", "Sol High", "Sol", "High", "High"),
+        CreatePreset("^F19", "Sol Extra High", "Sol", "Extra High", "Pro")
     ]
 }
 
