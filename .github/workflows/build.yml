@@ -14,6 +14,8 @@ jobs:
         run: .\scripts\Test-Documentation.ps1
       - name: Build runtime and installer
         shell: powershell
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: .\scripts\Build.ps1 -Clean
       - name: Build unsigned MSIX structure
         shell: powershell

@@ -8,6 +8,10 @@ $repositoryRoot = Split-Path -Parent $PSScriptRoot
 $distDirectory = Join-Path $repositoryRoot 'dist'
 $toolsDirectory = Join-Path $repositoryRoot '.tools\Ahk2Exe'
 $autoHotkeyToolsDirectory = Join-Path $repositoryRoot '.tools\AutoHotkey'
+$githubApiHeaders = @{ 'User-Agent' = 'ReasonKey-Build' }
+if (-not [string]::IsNullOrWhiteSpace($env:GITHUB_TOKEN)) {
+    $githubApiHeaders['Authorization'] = 'Bearer ' + $env:GITHUB_TOKEN
+}
 
 if ($Clean -and (Test-Path -LiteralPath $distDirectory)) {
     Get-ChildItem -LiteralPath $distDirectory -Force | Remove-Item -Recurse -Force
@@ -25,7 +29,7 @@ if ($null -eq $baseExecutable) {
         Select-Object -First 1 -ExpandProperty FullName
     if ($null -eq $downloadedBase) {
         Write-Host 'Downloading the official AutoHotkey v2 portable release...'
-        $release = Invoke-RestMethod -Headers @{ 'User-Agent' = 'ReasonKey-Build' } `
+        $release = Invoke-RestMethod -Headers $githubApiHeaders `
             -Uri 'https://api.github.com/repos/AutoHotkey/AutoHotkey/releases/latest'
         $asset = $release.assets | Where-Object { $_.name -like 'AutoHotkey_2*.zip' } |
             Select-Object -First 1
@@ -59,7 +63,7 @@ $compiler = $compilerCandidates | Where-Object { Test-Path -LiteralPath $_ } | S
 
 if ($null -eq $compiler) {
     Write-Host 'Downloading the official Ahk2Exe compiler...'
-    $release = Invoke-RestMethod -Headers @{ 'User-Agent' = 'ReasonKey-Build' } `
+    $release = Invoke-RestMethod -Headers $githubApiHeaders `
         -Uri 'https://api.github.com/repos/AutoHotkey/Ahk2Exe/releases/latest'
     $asset = $release.assets | Where-Object { $_.name -like 'Ahk2Exe*.zip' } | Select-Object -First 1
     if ($null -eq $asset) {

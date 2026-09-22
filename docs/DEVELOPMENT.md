@@ -62,6 +62,8 @@ The script uses an installed AutoHotkey v2 when available. Otherwise it
 downloads the official portable AutoHotkey v2 release. It also downloads the
 official Ahk2Exe compiler when needed. Temporary build dependencies live in
 `.tools/` and are ignored by Git.
+CI supplies its GitHub token for release metadata lookups to avoid the shared
+unauthenticated API rate limit; local builds work without a token.
 
 Toolchain versions are not pinned, so rebuilds need not be byte-identical to a
 published asset. Build.ps1 runs compiled runtime/installer --validate checks,
