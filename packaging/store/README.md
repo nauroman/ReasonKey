@@ -38,16 +38,29 @@ Start-Process .\dist\ReasonKey.exe `
 
 The preview flag shows the same Store first-run content in a compact window. It
 does not create a package identity or change Startup Apps settings.
-Capture the window and then build the Store-sized neutral canvas:
+Keep the complete preview window in the foreground, unobscured and fully on a
+monitor. Capture the window
+and then build the Store-sized neutral canvas:
 
 ```powershell
-.\scripts\Capture-StoreWindow.ps1 -ProcessId <preview-process-id>
+.\scripts\Capture-StoreWindow.ps1 -ProcessId <preview-process-id> `
+  -OutputPath packaging\store\assets\ReasonKey-QuickStart-1.0.12-window.png
 .\scripts\Build-StoreScreenshot.ps1 `
   -WindowScreenshot packaging\store\assets\ReasonKey-QuickStart-1.0.12-window.png `
   -CanvasWidth 1600 -CanvasHeight 1200
 ```
 
-Close the preview after the capture.
+The capture script uses physical-pixel DWM bounds and the composed screen image.
+It briefly stages a neutral backdrop behind the real window so the rounded
+corners contain no unrelated desktop content, then removes that backdrop.
+Do not use PrintWindow for this asset: it can leave black strips where Windows
+composes the frame. Before using or uploading a capture, visually inspect all
+four edges, rounded corners, title, every shortcut and the bottom buttons in
+both the raw capture and the final canvas. A successful API call is not visual
+verification. Retake a clipped, obscured or malformed capture; do not paint over
+the defect or hide it with arbitrary crop offsets.
+
+Close the preview after the capture and restore any runtime stopped for preview.
 
 ## Before upload
 
