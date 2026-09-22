@@ -67,6 +67,19 @@ paths were retained; earlier release evidence is not a new pass.
 
 ## Distribution
 
-Partner Center identity was checked against the reserved product. Submission 8
-(`1152921505701953722`) accepted the unsigned final MSIX as Validated. Listing
-and submission publication state are recorded after the final submission below.
+GitHub [v1.0.12](https://github.com/nauroman/ReasonKey/releases/tag/v1.0.12)
+was published from `8a9edd5add36b7e02c1f699ed5a968e2b12a65b1`, with the setup
+and SHA-256 file. GitHub's setup asset digest matches the local hash above.
+The [main CI run](https://github.com/nauroman/ReasonKey/actions/runs/35769545587)
+passed. The initial tag run hit an unauthenticated GitHub API rate limit while
+downloading AutoHotkey, before compilation; it was rerun. Privacy URL returned
+HTTP 200.
+
+Partner Center identity was checked against product `9NLDRHX8Z0B1`. Submission 8
+(`1152921505701953722`) accepted the unsigned final MSIX as **Validated**.
+The English listing, release notes, actual twelve-shortcut screenshot/caption
+and certification instructions were updated. Pricing and platform stayed
+unchanged. On 2026-09-22, Partner Center reported **Update in certification**,
+Submission complete, Pre-processing in progress (step 2 of 4), and automatic
+publication after certification. Public Store delivery of 1.0.12 is pending;
+the live Store presence still showed Submission 7 at this check.
