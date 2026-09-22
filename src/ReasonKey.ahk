@@ -13,7 +13,7 @@ if HasCommandLineArgument("--validate")
 {
     ; Cover both generations through the same selectors used for opening,
     ; reopening and verifying the picker, including cross-model rejection.
-    for modelName in ["Luna", "Terra", "Sol", "Astra"]
+    for modelName in ["Luna", "Luna6", "Terra", "Sol", "Sol6", "Astra"]
     {
         modelLabel := GetModelLabel(modelName)
         for effortName in ["Light", "Medium", "High", "Extra High", "Max", "Ultra"]
@@ -34,11 +34,21 @@ if HasCommandLineArgument("--validate")
     for alias in ["Astra", "astra", "GPT-6 Astra", "gpt-6-astra", "6 Astra"]
         if NormalizeModelName(alias) != "Astra"
             ExitApp(64)
-    for invalidLabel in ["5.6 Astra High", "6 Sol High", "6 Astra", "6 Astra Maximum"]
+    for alias in ["Sol6", "sol6", "GPT-6 Sol", "gpt-6-sol", "6 Sol"]
+        if NormalizeModelName(alias) != "Sol6"
+            ExitApp(64)
+    for alias in ["Luna6", "luna6", "GPT-6 Luna", "gpt-6-luna", "6 Luna"]
+        if NormalizeModelName(alias) != "Luna6"
+            ExitApp(64)
+    for invalidLabel in ["5.6 Astra High", "6 Terra High", "6 Sol6 High", "6 Luna6 High", "6 Astra", "6 Astra Maximum"]
         if RegExMatch(invalidLabel, GetPickerTriggerPattern())
             ExitApp(65)
     if RegExMatch("5.6 Sol", GetModelOptionPattern("Astra"))
         || RegExMatch("6 Astra", GetModelOptionPattern("Sol"))
+        || RegExMatch("5.6 Sol", GetModelOptionPattern("Sol6"))
+        || RegExMatch("6 Sol", GetModelOptionPattern("Sol"))
+        || RegExMatch("5.6 Luna", GetModelOptionPattern("Luna6"))
+        || RegExMatch("6 Luna", GetModelOptionPattern("Luna"))
         ExitApp(66)
 
     ultraPattern := GetEffortOptionPattern("Ultra")
@@ -58,10 +68,11 @@ if HasCommandLineArgument("--validate")
     if NormalizeChatEffortName("Extra High") != ""
         ExitApp(1)
 
-    expectedDefaultHotkeys := ["F16", "F17", "F18", "F19", "^F16", "^F17", "^F18", "^F19"]
+    expectedDefaultHotkeys := ["F16", "F17", "F18", "F19", "^F16", "^F17", "^F18", "^F19", "^+F16", "^+F17", "^+F18", "^+F19"]
     expectedDefaultLabels := [
         "6 Astra Light", "6 Astra Medium", "6 Astra High", "6 Astra Extra High",
-        "5.6 Sol Light", "5.6 Sol Medium", "5.6 Sol High", "5.6 Sol Extra High"
+        "6 Sol Light", "6 Sol Medium", "6 Sol High", "6 Sol Extra High",
+        "6 Luna Light", "6 Luna Medium", "6 Luna High", "6 Luna Extra High"
     ]
     defaults := DefaultPresets()
     if defaults.Length != expectedDefaultHotkeys.Length
@@ -172,7 +183,7 @@ UIA.SetMaximumDPIAwareness()
 Persistent true
 
 global AppName := "ReasonKey"
-global AppVersion := "1.0.11"
+global AppVersion := "1.0.12"
 global PackageFamilyName := GetPackageFamilyName()
 global DataDirectory := GetApplicationDataDirectory(PackageFamilyName)
 global ConfigPath := A_IsCompiled
@@ -607,10 +618,14 @@ DefaultPresets()
         CreatePreset("F17", "Astra Medium", "Astra", "Medium", "Medium"),
         CreatePreset("F18", "Astra High", "Astra", "High", "High"),
         CreatePreset("F19", "Astra Extra High", "Astra", "Extra High", "Pro"),
-        CreatePreset("^F16", "Sol Light", "Sol", "Light", "Instant"),
-        CreatePreset("^F17", "Sol Medium", "Sol", "Medium", "Medium"),
-        CreatePreset("^F18", "Sol High", "Sol", "High", "High"),
-        CreatePreset("^F19", "Sol Extra High", "Sol", "Extra High", "Pro")
+        CreatePreset("^F16", "GPT-6 Sol Light", "Sol6", "Light", "Instant"),
+        CreatePreset("^F17", "GPT-6 Sol Medium", "Sol6", "Medium", "Medium"),
+        CreatePreset("^F18", "GPT-6 Sol High", "Sol6", "High", "High"),
+        CreatePreset("^F19", "GPT-6 Sol Extra High", "Sol6", "Extra High", "Pro"),
+        CreatePreset("^+F16", "GPT-6 Luna Light", "Luna6", "Light", "Instant"),
+        CreatePreset("^+F17", "GPT-6 Luna Medium", "Luna6", "Medium", "Medium"),
+        CreatePreset("^+F18", "GPT-6 Luna High", "Luna6", "High", "High"),
+        CreatePreset("^+F19", "GPT-6 Luna Extra High", "Luna6", "Extra High", "Pro")
     ]
 }
 
@@ -664,6 +679,10 @@ CreatePreset(hotkeyName, displayName, modelName, effortName, chatEffortName)
 
 GetModelLabel(modelName)
 {
+    if modelName = "Sol6"
+        return "6 Sol"
+    if modelName = "Luna6"
+        return "6 Luna"
     return (modelName = "Astra" ? "6 " : "5.6 ") modelName
 }
 
@@ -674,7 +693,7 @@ GetModelOptionPattern(modelName)
 
 GetPickerTriggerPattern()
 {
-    return "^(?:GPT-)?(?:5\.6 (?:Luna|Terra|Sol)|6 Astra) (Light|Medium|High|Extra High|Max|Ultra)( Fast)?$"
+    return "^(?:GPT-)?(?:5\.6 (?:Luna|Terra|Sol)|6 (?:Astra|Sol|Luna)) (Light|Medium|High|Extra High|Max|Ultra)( Fast)?$"
 }
 
 NormalizePickerLabel(label)
@@ -696,8 +715,10 @@ NormalizeModelName(value)
     switch StrLower(Trim(value))
     {
         case "luna": return "Luna"
+        case "luna6", "gpt-6-luna", "gpt-6 luna", "6 luna": return "Luna6"
         case "terra": return "Terra"
         case "sol": return "Sol"
+        case "sol6", "gpt-6-sol", "gpt-6 sol", "6 sol": return "Sol6"
         case "astra", "gpt-6-astra", "gpt-6 astra", "6 astra": return "Astra"
         default: return ""
     }
@@ -1041,13 +1062,13 @@ SelectPreset(index, *)
 
 SelectCombinedPreset(targetLabel, targetChatEffort, recoverOpenPicker := true)
 {
-    if !RegExMatch(targetLabel, "^(?:5\.6 (Luna|Terra|Sol)|6 (Astra)) (.+)$", &targetMatch)
+    if !RegExMatch(targetLabel, "^(?:5\.6 (Luna|Terra|Sol)|6 (Astra|Sol|Luna)) (.+)$", &targetMatch)
     {
         LogMessage("invalid target label=" targetLabel)
         return false
     }
 
-    targetModel := targetMatch[1] != "" ? targetMatch[1] : targetMatch[2]
+    targetModel := targetMatch[1] != "" ? targetMatch[1] : NormalizeModelName("6 " targetMatch[2])
     targetEffort := targetMatch[3]
     windowHandle := WinExist("A")
     windowElement := UIA.ElementFromHandle(windowHandle)
@@ -1136,7 +1157,7 @@ SelectCombinedPreset(targetLabel, targetChatEffort, recoverOpenPicker := true)
 
     pickerElement := WaitAnyVisibleElement(pickerRoot, [
         "^Select model$",
-        "^(?:GPT-)?(?:5\.6 (?:Luna|Terra|Sol)|6 Astra)$",
+        "^(?:GPT-)?(?:5\.6 (?:Luna|Terra|Sol)|6 (?:Astra|Sol|Luna))$",
         "^Power$",
         "^Show advanced options$",
         "^Show compact options$",

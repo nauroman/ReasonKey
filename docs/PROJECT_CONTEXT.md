@@ -2,8 +2,8 @@
 
 Source/navigation context, not a second product specification or a release log.
 Read the [product core](product-spec.md) and affected owners first.
-Snapshot: 2026-09-13; working-tree runtime and installer declare AppVersion 1.0.11.
-Source support includes Astra; this snapshot does not establish publication.
+Snapshot: 2026-09-22; working-tree runtime and installer declare AppVersion 1.0.12.
+Source support includes GPT-6 Astra, Sol and Luna; this snapshot does not establish publication.
 
 ## Repository
 
@@ -42,7 +42,8 @@ public Store delivery.
 ## Evidence boundaries
 
 The source map above comes from source inspection. Current release evidence is
-in [1.0.11 validation](diagnostics/release-1.0.11.md). Previous
+in [1.0.12 validation](diagnostics/release-1.0.12.md). Previous
+[1.0.11 validation](diagnostics/release-1.0.11.md) and
 [1.0.10 validation](diagnostics/release-1.0.10.md) includes actual Codex,
 ChatGPT Work and ordinary Chat results and its remaining external gates.
 [Picker history](diagnostics/picker-validation-history.md) records earlier app

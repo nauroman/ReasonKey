@@ -33,7 +33,7 @@ Read through the [product core](../product-spec.md).
 
 ## Current implementation
 
-Source inspection: 2026-09-13, working-tree [ReasonKey.ahk](../../src/ReasonKey.ahk) 1.0.11.
+Source inspection: 2026-09-22, working-tree [ReasonKey.ahk](../../src/ReasonKey.ahk) 1.0.12.
 
 | Area | Source entry points / current accessible surface |
 |---|---|
@@ -59,7 +59,7 @@ combined model/effort Button. GetPickerSearchRoot returns failure when neither
 the focused popup nor a supplied target-window fallback is available, without
 falling back to a desktop-wide scan.
 
-Selectors recognize 5.6 Luna/Terra/Sol and GPT-6 Astra (also 6 Astra) through GetModelLabel,
+Selectors recognize 5.6 Luna/Terra/Sol and GPT-6 Astra/Sol/Luna (also 6 Astra/Sol/Luna) through GetModelLabel,
 GetModelOptionPattern and GetPickerTriggerPattern, including reopening the
 picker and returning from Astra to a 5.6 model. This records source support,
 not a claim that every account or desktop version exposes those

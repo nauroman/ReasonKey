@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.12 - 2026-09-22
+
+- Change Ctrl+F16–F19 defaults to GPT-6 Sol Light, Medium, High, Extra High.
+- Add Ctrl+Shift+F16–F19 for GPT-6 Luna at the same effort levels.
+- Add Sol6 and Luna6 model names and GPT-6 aliases, preserving older Sol/Luna
+  configurations and ordinary Chat mapping. Upgrades preserve active presets.
+- Keep F16–F19 on GPT-6 Astra; include twelve defaults in the configuration guide.
+
 ## 1.0.11 - 2026-09-13
 
 - Keep F16–F19 on GPT-6 Astra Light, Medium, High, and Extra High.

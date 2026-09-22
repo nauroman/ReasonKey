@@ -3,7 +3,7 @@
 #NoTrayIcon
 
 global AppName := "ReasonKey"
-global AppVersion := "1.0.11"
+global AppVersion := "1.0.12"
 global InstallDirectory := EnvGet("LOCALAPPDATA") "\ReasonKey"
 global RuntimePath := InstallDirectory "\ReasonKey.exe"
 global ConfigPath := InstallDirectory "\presets.ini"

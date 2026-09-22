@@ -129,12 +129,16 @@ In **Codex** and **ChatGPT Work**, new installations use:
 | `F17` | GPT-6 Astra | Medium |
 | `F18` | GPT-6 Astra | High |
 | `F19` | GPT-6 Astra | Extra High |
-| `Ctrl+F16` | GPT-5.6 Sol | Light |
-| `Ctrl+F17` | GPT-5.6 Sol | Medium |
-| `Ctrl+F18` | GPT-5.6 Sol | High |
-| `Ctrl+F19` | GPT-5.6 Sol | Extra High |
+| `Ctrl+F16` | GPT-6 Sol | Light |
+| `Ctrl+F17` | GPT-6 Sol | Medium |
+| `Ctrl+F18` | GPT-6 Sol | High |
+| `Ctrl+F19` | GPT-6 Sol | Extra High |
+| `Ctrl+Shift+F16` | GPT-6 Luna | Light |
+| `Ctrl+Shift+F17` | GPT-6 Luna | Medium |
+| `Ctrl+Shift+F18` | GPT-6 Luna | High |
+| `Ctrl+Shift+F19` | GPT-6 Luna | Extra High |
 
-When the composer is in **ChatGPT Chat** instead of **Codex**, both shortcut
+When the composer is in **ChatGPT Chat** instead of **Codex**, all three shortcut
 groups select 5.6 Sol on Chat's independent Power scale:
 
 | Shortcut | Chat model | Power |
@@ -147,13 +151,17 @@ groups select 5.6 Sol on Chat's independent Power scale:
 | `Ctrl+F17` | 5.6 Sol | Medium |
 | `Ctrl+F18` | 5.6 Sol | High |
 | `Ctrl+F19` | 5.6 Sol | Pro |
+| `Ctrl+Shift+F16` | 5.6 Sol | Instant |
+| `Ctrl+Shift+F17` | 5.6 Sol | Medium |
+| `Ctrl+Shift+F18` | 5.6 Sol | High |
+| `Ctrl+Shift+F19` | 5.6 Sol | Pro |
 
 Chat uses its independent `ChatEffort` values. Some unified-picker versions
 display the `Instant` and `Pro` endpoints as `Light` and `Max`; ReasonKey
 retains that compatibility. An unavailable option fails explicitly instead of silently
 choosing a different level.
 
-Ordinary Chat has a separate model catalog. In the tested 26.903 app it exposes
+Ordinary Chat has a separate model catalog. In the tested 26.915 app it exposes
 Latest, GPT-5.6 Sol and GPT-5.5, without Astra. Use **Codex** or **ChatGPT Work**
 for the Astra presets above; ReasonKey cannot unlock a model absent from the picker.
 
@@ -184,7 +192,11 @@ Sol shortcuts to an existing installation, copy Preset5–Preset8 from **Open
 configuration guide**, set `PresetCount=8`, then reload. The tray
 command opens the file used by the active runtime.
 
-Supported model names are `Luna`, `Terra`, `Sol`, and `Astra` (GPT-6).
+Supported model names are `Luna` (GPT-5.6), `Luna6` (GPT-6 Luna), `Terra`, `Sol` (GPT-5.6), `Sol6` (GPT-6 Sol), and `Astra` (GPT-6).
+For GPT-6 Luna, use `Model=Luna6` (or `Model=GPT-6 Luna`). To add the
+Ctrl+Shift group, copy Preset9–Preset12 from the guide and set `PresetCount=12`.
+In ordinary Chat, Ctrl+Shift uses the same four Chat Power levels listed above.
+For GPT-6 Sol, set `Model=Sol6` (or `Model=GPT-6 Sol`); existing `Model=Sol` still selects GPT-5.6 Sol.
 To select GPT-6 Astra, set `Model=Astra` in the desired preset, save, and
 choose **Reload** from the tray menu. For example, `Model=Astra` with
 `Effort=Max` selects `6 Astra Max` in Codex. Existing presets and ChatGPT's
@@ -229,7 +241,7 @@ details.
 - English UI labels in the current release
 
 The current unified Codex and ChatGPT paths were validated against desktop
-package `OpenAI.Codex_26.903.8094.0_x64__2p2nqsd0c76g0`. The legacy Advanced
+package `OpenAI.Codex_26.915.4065.0_x64__2p2nqsd0c76g0`. The legacy Advanced
 path remains for compatibility with the earlier 26.825 builds. UI Automation
 labels are not a public compatibility contract, so future desktop updates can
 require selector updates.

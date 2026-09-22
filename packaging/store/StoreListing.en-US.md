@@ -32,20 +32,23 @@ Default presets in Codex and ChatGPT Work:
 - F17: GPT-6 Astra, Medium
 - F18: GPT-6 Astra, High
 - F19: GPT-6 Astra, Extra High
-- Ctrl+F16: GPT-5.6 Sol, Light
-- Ctrl+F17: GPT-5.6 Sol, Medium
-- Ctrl+F18: GPT-5.6 Sol, High
-- Ctrl+F19: GPT-5.6 Sol, Extra High
+- Ctrl+F16: GPT-6 Sol, Light
+- Ctrl+F17: GPT-6 Sol, Medium
+- Ctrl+F18: GPT-6 Sol, High
+- Ctrl+F19: GPT-6 Sol, Extra High
+- Ctrl+Shift+F16–F19: GPT-6 Luna, Light / Medium / High / Extra High
 
-Ordinary Chat has a separate model catalog. The tested 26.903 app offers
-Latest, GPT-5.6 Sol and GPT-5.5 there, without Astra. Use Codex or ChatGPT Work
-for Astra; ReasonKey cannot unlock an unavailable model.
+Ordinary Chat has a separate model catalog. The tested 26.915 app offers
+Latest, GPT-5.6 Sol and GPT-5.5 there, without GPT-6 Astra, Sol or Luna. Use Codex or ChatGPT Work
+for GPT-6 models; ReasonKey cannot unlock an unavailable model.
 
 Upgrades preserve existing presets. To adopt Astra after upgrading, open
 presets.ini from the running ReasonKey tray icon, set the first four Model
 values to Astra and Effort to Light, Medium, High, Extra High, then reload.
 To add Ctrl+F16 through Ctrl+F19 to an existing installation, copy Preset5–8
 from the configuration guide, set PresetCount to 8, and reload.
+For Ctrl+Shift, copy Preset9–12, set PresetCount to 12, and reload.
+To update existing Ctrl presets, set Model=Sol6 in Preset5–8.
 Store and direct EXE installations keep separate configuration files.
 
 Shortcuts and presets can be edited in a documented `presets.ini` file from the
@@ -99,9 +102,11 @@ Copyright 2026 ReasonKey contributors. Codex, ChatGPT, and OpenAI are the
 property of their respective owners. This product is not affiliated with or
 endorsed by OpenAI.
 
-## What's new in 1.0.11
+## What's new in 1.0.12
 
-- Add Ctrl+F16–Ctrl+F19 for GPT-5.6 Sol Light, Medium, High, and Extra High in
-  Codex and ChatGPT Work.
-- Keep F16–F19 on GPT-6 Astra at the same four effort levels.
-- Keep ordinary Chat's separate Sol Instant, Medium, High, and Pro mapping.
+- Ctrl+F16–F19 now default to GPT-6 Sol.
+- Add Ctrl+Shift+F16–F19 for GPT-6 Luna.
+- Each group selects Light, Medium, High, or Extra High.
+- Keep F16–F19 on Astra and ordinary Chat on its separate Instant, Medium, High, and Pro levels.
+- Upgrades preserve existing configurations.
+- To adopt all twelve shortcuts, copy the presets from the configuration guide.

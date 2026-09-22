@@ -21,22 +21,31 @@ does not expose Astra.
 | F17 | Astra | Medium | Medium | Medium |
 | F18 | Astra | High | High | High |
 | F19 | Astra | Extra High | Pro | Max |
-| Ctrl+F16 | Sol | Light | Instant | Light |
-| Ctrl+F17 | Sol | Medium | Medium | Medium |
-| Ctrl+F18 | Sol | High | High | High |
-| Ctrl+F19 | Sol | Extra High | Pro | Max |
+| Ctrl+F16 | Sol6 | Light | Instant | Light |
+| Ctrl+F17 | Sol6 | Medium | Medium | Medium |
+| Ctrl+F18 | Sol6 | High | High | High |
+| Ctrl+F19 | Sol6 | Extra High | Pro | Max |
+| Ctrl+Shift+F16 | Luna6 | Light | Instant | Light |
+| Ctrl+Shift+F17 | Luna6 | Medium | Medium | Medium |
+| Ctrl+Shift+F18 | Luna6 | High | High | High |
+| Ctrl+Shift+F19 | Luna6 | Extra High | Pro | Max |
 
-- Model names: Luna, Terra, Sol (5.6) and Astra (6). Efforts: Light, Medium, High, Extra High, Max,
+- Model names: Luna (5.6), Luna6 (6 Luna), Terra, Sol (5.6), Sol6 (6 Sol) and Astra (6).
+  Efforts: Light, Medium, High, Extra High, Max,
   Ultra; actual availability must be exposed by the target picker.
 - Codex aliases: Low → Light; xhigh → Extra High. Names are trimmed and
   case-insensitive.
 - Astra also accepts GPT-6 Astra, gpt-6-astra and 6 Astra. Its Codex label uses
   6 Astra rather than the 5.6 prefix; default presets and Chat mapping
   remain as shown above.
+- Luna6 also accepts GPT-6 Luna, gpt-6-luna and 6 Luna; Model=Luna retains 5.6.
+- Sol6 also accepts GPT-6 Sol, gpt-6-sol and 6 Sol.
+  Existing Model=Sol retains GPT-5.6 Sol; Chat remains on its independent
+  5.6 Sol mapping.
 - ChatEffort accepts Instant, Medium, High, Pro. Extra High is not a supported
   ChatEffort configuration value even though a legacy UI exposed that option.
 - Missing ChatEffort uses the legacy defaults above for sections 1–4. Sections
-  5–8 in the shipped configuration specify ChatEffort explicitly; further
+  5–12 in the shipped configuration specify ChatEffort explicitly; further
   sections must also specify it to work in Chat.
 - Use AutoHotkey keyboard syntax, unique hotkeys and consecutive Preset sections.
   Reload after editing. No wheel-cycle feature; legacy CycleUp/CycleDown keys
@@ -57,12 +66,12 @@ Source inspection: 2026-09-13, working-tree runtime AppVersion 1.0.11; see the A
 UI and upgrade proof.
 
 In [ReasonKey.ahk](../../src/ReasonKey.ahk), LoadPresets reads General/PresetCount
-(legacy missing/invalid value → 4, clamped to 1–20; shipped INI specifies 8),
+(legacy missing/invalid value → 4, clamped to 1–20; shipped INI specifies 12),
 then Preset1 through
 PresetN. Hotkey, normalized Model and normalized Effort must be nonempty or that
 section is skipped. Missing Name defaults to the normalized model/effort label.
 
-A missing configuration file or zero accepted sections loads the eight
+A missing configuration file or zero accepted sections loads the twelve
 DefaultPresets.
 An invalid ChatEffort normalizes to empty without discarding an otherwise valid
 Codex preset; applying it in Chat fails. RegisterConfiguredHotkeys separately
