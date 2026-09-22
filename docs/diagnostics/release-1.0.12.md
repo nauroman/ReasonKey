@@ -72,8 +72,9 @@ was published from `8a9edd5add36b7e02c1f699ed5a968e2b12a65b1`, with the setup
 and SHA-256 file. GitHub's setup asset digest matches the local hash above.
 The [main CI run](https://github.com/nauroman/ReasonKey/actions/runs/35769545587)
 passed. The initial tag run hit an unauthenticated GitHub API rate limit while
-downloading AutoHotkey, before compilation; it was rerun. Privacy URL returned
-HTTP 200.
+downloading AutoHotkey, before compilation; its
+[rerun passed](https://github.com/nauroman/ReasonKey/actions/runs/35769548539).
+Privacy URL returned HTTP 200.
 
 Partner Center identity was checked against product `9NLDRHX8Z0B1`. Submission 8
 (`1152921505701953722`) accepted the unsigned final MSIX as **Validated**.
